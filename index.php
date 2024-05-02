@@ -20,6 +20,10 @@
         <input type="submit" value="Agregar Tarea">
     </form>
 
+    <form action="completar.php" method="get">
+        <input type="submit" value="Listar Tarea">
+    </form>
+
     <h1>Lista de Tareas</h1>
     <h2>Tareas Pendientes</h2>
     <ul>
