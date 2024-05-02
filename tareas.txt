@@ -1,0 +1,3 @@
+Hacer la compra|pendiente
+Llamar al cliente|completada
+Enviar informe semanal|pendiente
