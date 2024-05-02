@@ -1,3 +1,9 @@
-Hacer la compra|pendiente
+Hacer la compra|completada
 Llamar al cliente|completada
 Enviar informe semanal|pendiente
+Preparar presentación para reunión|pendiente
+Revisar contrato con el abogado|completada
+Planificar vacaciones de verano|pendiente
+Terminar informe de proyecto|pendiente
+Recoger el coche del taller|completada
+Limpiar el garaje|pendiente
