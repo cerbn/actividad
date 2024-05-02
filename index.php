@@ -20,6 +20,10 @@
         <input type="submit" value="Agregar Tarea">
     </form>
 
+    <form action="completar.php" method="get">
+        <input type="submit" value="Listar Tarea">
+    </form>
+
     <h1>Lista de Tareas</h1>
     <h2>Tareas Pendientes</h2>
     <ul>
@@ -44,6 +48,13 @@
 
         // Ruta al archivo donde se almacenan las tareas
         $archivoTareas = 'tareas.txt';
+
+        // Verificar si el archivo existe, si no, crearlo
+        if (!file_exists($archivoTareas)) {
+            // Crear el archivo y agregarlo al .gitignore
+            file_put_contents($archivoTareas, '');
+            file_put_contents('.gitignore', $archivoTareas . PHP_EOL, FILE_APPEND);
+        }
 
         // Obtener las tareas pendientes
         $tareasPendientes = array_filter(leerTareas($archivoTareas), function ($tarea) {

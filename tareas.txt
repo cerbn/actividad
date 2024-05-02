@@ -4,6 +4,9 @@ Enviar informe semanal|pendiente
 Preparar presentación para reunión|pendiente
 Revisar contrato con el abogado|completada
 Planificar vacaciones de verano|pendiente
-Terminar informe de proyecto|pendiente
+Terminar informe de proyecto|completada
 Recoger el coche del taller|completada
-Limpiar el garaje|pendiente
+Limpiar el garaje|completada
+Terminar trabajo|completada
+profe nuebvo|completada
+hola|completada
