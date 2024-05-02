@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,13 +12,25 @@
         }
     </style>
 </head>
+
 <body>
+
+    <!-- Botón para ir a agregar.php -->
+    <form action="agregar.php" method="get">
+        <input type="submit" value="Agregar Tarea">
+    </form>
+
+    <form action="completar.php" method="get">
+        <input type="submit" value="Listar Tarea">
+    </form>
+
     <h1>Lista de Tareas</h1>
     <h2>Tareas Pendientes</h2>
     <ul>
         <?php
         // Función para leer las tareas desde el archivo de texto
-        function leerTareas($archivo) {
+        function leerTareas($archivo)
+        {
             $tareas = [];
             // Verificar si el archivo existe
             if (file_exists($archivo)) {
@@ -37,7 +50,7 @@
         $archivoTareas = 'tareas.txt';
 
         // Obtener las tareas pendientes
-        $tareasPendientes = array_filter(leerTareas($archivoTareas), function($tarea) {
+        $tareasPendientes = array_filter(leerTareas($archivoTareas), function ($tarea) {
             return !$tarea['completada'];
         });
 
@@ -52,7 +65,7 @@
     <ul>
         <?php
         // Obtener las tareas completadas
-        $tareasCompletadas = array_filter(leerTareas($archivoTareas), function($tarea) {
+        $tareasCompletadas = array_filter(leerTareas($archivoTareas), function ($tarea) {
             return $tarea['completada'];
         });
 
@@ -63,4 +76,5 @@
         ?>
     </ul>
 </body>
+
 </html>
