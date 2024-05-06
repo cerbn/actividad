@@ -55,7 +55,7 @@ function leerTareasPendientes($archivo)
     }
     ?>
 
-    <form action="completar.php" method="post">
+    <form action="completar1.php" method="post">
         <h2>Tareas Pendientes</h2>
         <ul>
             <?php
@@ -66,7 +66,7 @@ function leerTareasPendientes($archivo)
         <input type="submit" value="Marcar como Completadas">
     </form>
 
-    <a href="index.php">Volver a la Lista de Tareas</a>
+    <a href="index1.php">Volver a la Lista de Tareas</a>
 </body>
 
 </html>

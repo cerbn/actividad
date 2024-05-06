@@ -7,38 +7,49 @@
 </head>
 <body>
     <h1>Agregar Nueva Tarea</h1>
-    <form action="agregar.php" method="post">
+    <form action="agregar1.php" method="post">
         <label for="tarea">Tarea:</label>
         <input type="text" id="tarea" name="tarea" required>
         <input type="submit" value="Agregar">
     </form>
 
     <?php
-    // Verificar si se ha enviado el formulario
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Obtener la tarea del formulario
-        $nuevaTarea = $_POST["tarea"];
+// Ruta al archivo donde se almacenan las tareas
+$archivoTareas = 'tareas.txt';
 
-        // Validar que la tarea no esté vacía
-        if (!empty($nuevaTarea)) {
-            // Abrir el archivo de tareas en modo escritura (append)
-            $archivo = fopen("tareas.txt", "a");
+// Verificar si se ha enviado el formulario
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Obtener la tarea del formulario
+    $nuevaTarea = $_POST["tarea"];
 
-            // Escribir la nueva tarea en el archivo
-            fwrite($archivo, $nuevaTarea . "|pendiente\n");
+    // Validar que la tarea no esté vacía
+    if (!empty($nuevaTarea)) {
+        // Abrir el archivo de tareas en modo escritura (append)
+        $archivo = fopen($archivoTareas, "a");
 
-            // Cerrar el archivo
-            fclose($archivo);
+        // Escribir la nueva tarea en el archivo
+        fwrite($archivo, $nuevaTarea . "|pendiente\n");
 
-            // Mostrar un mensaje de éxito
-            echo "<p>Tarea agregada correctamente.</p>";
-        } else {
-            // Mostrar un mensaje de error si la tarea está vacía
-            echo "<p>Por favor, ingresa una tarea válida.</p>";
+        // Cerrar el archivo
+        fclose($archivo);
+
+        // Agregar 'tareas.txt' al .gitignore si no está presente
+        $gitignore = '.gitignore';
+        $contenidoGitignore = file_get_contents($gitignore);
+        if (strpos($contenidoGitignore, $archivoTareas) === false) {
+            file_put_contents($gitignore, $archivoTareas . PHP_EOL, FILE_APPEND);
         }
+
+        // Mostrar un mensaje de éxito
+        echo "<p>Tarea agregada correctamente.</p>";
+    } else {
+        // Mostrar un mensaje de error si la tarea está vacía
+        echo "<p>Por favor, ingresa una tarea válida.</p>";
     }
-    ?>
+}
+?>
+
     
-    <a href="index.php">Volver a la lista de tareas</a>
+    <a href="index1.php">Volver a la lista de tareas</a>
 </body>
 </html>

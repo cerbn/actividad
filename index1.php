@@ -16,11 +16,11 @@
 <body>
 
     <!-- Botón para ir a agregar.php -->
-    <form action="agregar.php" method="get">
+    <form action="agregar1.php" method="get">
         <input type="submit" value="Agregar Tarea">
     </form>
 
-    <form action="completar.php" method="get">
+    <form action="completar1.php" method="get">
         <input type="submit" value="Listar Tarea">
     </form>
 
