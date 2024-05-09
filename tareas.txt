@@ -1,1 +1,3 @@
-adad|completada
+hola|completada
+hola|completada
+new|pendiente
