@@ -24,11 +24,12 @@ function leerTareasPendientes($archivo)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="completar.css">
     <title>Marcar Tarea como Completada</title>
 </head>
 
 <body>
-    <h1>Marcar Tarea como Completada</h1>
+    <h1 id="titulo">Marcar Tarea como Completada</h1>
 
     <?php
     // Ruta al archivo donde se almacenan las tareas
@@ -48,26 +49,29 @@ function leerTareasPendientes($archivo)
             }
             // Guardar las tareas actualizadas en el archivo
             file_put_contents($archivoTareas, implode("\n", $tareas) . "\n");
-            echo "<p>Tareas marcadas como completadas correctamente.</p>";
+            echo '<p class="mensaje exito" >Tareas marcadas como completadas correctamente.</p>';
         } else {
-            echo "<p>No se han seleccionado tareas para marcar como completadas.</p>";
+            echo '<p class="mensaje error" >No se han seleccionado tareas para marcar como completadas.</p>';
         }
     }
     ?>
 
-    <form action="completar1.php" method="post">
-        <h2>Tareas Pendientes</h2>
-        <ul>
-            <?php
-            // Mostrar solo las tareas pendientes
-            leerTareasPendientes($archivoTareas);
-            ?>
-        </ul>
-        <input type="submit" value="Marcar como Completadas">
-    </form>
+<form action="completar1.php" method="post">
+    <h2 class="subtitulo1">Tareas Pendientes</h2>
+    <ul class="lista-tareas">
+        <?php
+        // Mostrar solo las tareas pendientes
+        leerTareasPendientes($archivoTareas);
+        ?>
+    </ul>
+    <button type="submit">Marcar como Completadas</button>
+</form>
 
-    <a href="index1.php">Volver a la Lista de Tareas</a>
+
+    <button onclick="window.location.href='index1.php'">Volver a la Lista de Tareas</button>
 </body>
+
+
 
 </html>
 
